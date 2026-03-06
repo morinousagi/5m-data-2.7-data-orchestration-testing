@@ -17,12 +17,31 @@ Answer:
 Specs for `dbt_utils`:
 
 ```yml
+# https://hub.getdbt.com/dbt-labs/dbt_utils/latest/
+
+      - name: bottles_sold
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+                inclusive: true
 
 ```
 
 Specs for `dbt-expectations`:
 
 ```yml
+# https://hub.getdbt.com/calogica/dbt_expectations/latest/
+
+      - name: bottles_sold
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+                inclusive: true
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              arguments:
+                column_type: integer
 
 ```
 
